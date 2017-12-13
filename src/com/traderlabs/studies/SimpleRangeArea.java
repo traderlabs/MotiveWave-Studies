@@ -1,4 +1,4 @@
-package traderlabs_studies;
+package com.traderlabs.studies;
 
 import java.awt.FontMetrics;
 import java.awt.Graphics2D;

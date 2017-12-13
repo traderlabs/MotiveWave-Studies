@@ -1,4 +1,4 @@
-package traderlabs_studies;
+package com.traderlabs.studies;
 
 import java.util.Collections;
 import java.util.HashMap;
@@ -57,10 +57,11 @@ public class OpeningRange extends Study
     SettingTab tab = new SettingTab(get("TAB_GENERAL"));
     sd.addTab(tab);
     setSettingsDescriptor(sd);
+    // Required invisible input to declare a 1 day barsize
+    sd.addInvisibleSetting(new BarSizeDescriptor(DURATION, get("LBL_DURATION"), BarSize.getBarSize(BarSizeType.LINEAR, 1440)));
 
     SettingGroup inputs = new SettingGroup(get("LBL_INPUTS"));
     inputs.addRow(new BarSizeDescriptor(Inputs.BARSIZE, get("LBL_TIMEFRAME"), BarSize.getBarSize(BarSizeType.LINEAR, 30)));
-    inputs.addRow(new BarSizeDescriptor(DURATION, get("LBL_DURATION"), BarSize.getBarSize(BarSizeType.LINEAR, 1440)));
     inputs.addRow(new BooleanDescriptor(SHOW_ALL, get("LBL_SHOW_ALL"), true));
     inputs.addRow(new BooleanDescriptor(EXTEND_RIGHT, get("LBL_EXTEND_RIGHT"), true));
     tab.addGroup(inputs);
